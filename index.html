@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bansal Classes – Fee Structure</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Logo Header -->
+  <header class="page-logo">
+    <div class="logo-wrap">
+      <img src="IMG_0160.PNG" alt="Bansal Classes Logo" class="site-logo" />
+    </div>
+    <p class="tagline">Since 1981 · Ideal for Scholars</p>
+  </header>
+
+  <!-- Main Card -->
+  <main class="page">
+    <div class="card">
+
+      <h1 class="title">Fee Structure Breakdown</h1>
+      <p class="subtitle">Transparent installment calculation</p>
+
+      <!-- Inputs -->
+      <div class="inputs">
+        <div class="input-group">
+          <label>Course Fee (₹)</label>
+          <input type="number" id="totalFee" placeholder="50000" />
+        </div>
+
+        <div class="input-group">
+          <label>GST %</label>
+          <input type="number" id="gstPct" placeholder="0" value="0" min="0" step="0.01" />
+        </div>
+
+        <div class="input-group hidden" id="totalWithGstWrapper">
+          <label>Total Fee (incl. GST)</label>
+          <input type="text" id="totalWithGst" readonly placeholder="—" />
+        </div>
+
+        <div class="input-group">
+          <label>Registration Fee (₹)</label>
+          <input type="number" id="regFee" placeholder="10000" />
+        </div>
+      </div>
+
+      <!-- Percentage editor (inline, hidden by default) -->
+      <div id="percentEditor" style="display:none; margin-top:12px; margin-bottom:10px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+          <div class="input-group">
+            <label>1st % (must include ₹5,000)</label>
+            <input type="number" id="p1" min="0" max="100" step="0.01" />
+          </div>
+          <div class="input-group">
+            <label>2nd %</label>
+            <input type="number" id="p2" min="0" max="100" step="0.01" />
+          </div>
+          <div class="input-group">
+            <label>3rd %</label>
+            <input type="number" id="p3" min="0" max="100" step="0.01" />
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:10px;">
+          <button id="savePctBtn" class="btn primary">Save Percentages</button>
+          <button id="cancelPctBtn" class="btn ghost">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="actions" style="margin-top:8px;">
+        <button id="editPctBtn" class="btn primary">Edit Percentages</button>
+        <button class="btn primary" id="calculateBtn">Calculate</button>
+        <button class="btn ghost" id="resetBtn">Reset</button>
+      </div>
+
+      <!-- Error -->
+      <p id="error" class="error"></p>
+
+      <!-- Results -->
+      <div class="results" id="results" style="margin-top:18px;">
+        <div class="installment highlight">
+          <h3>1st Installment</h3>
+          <p class="amount" id="inst1">—</p>
+          <small>Includes ₹5,000 study material</small>
+        </div>
+
+        <div class="installment">
+          <h3>2nd Installment</h3>
+          <p class="amount" id="inst2">—</p>
+        </div>
+
+        <div class="installment">
+          <h3>3rd Installment</h3>
+          <p class="amount" id="inst3">—</p>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <!-- <p class="footer-note">
+        Registration fee is fixed and not included in installment percentage calculation.
+      </p> -->
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
