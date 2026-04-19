@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bansal Fee Calculator</title>
+</head>
+<body>
+    <h1>Bansal Fee Calculator</h1>
+    <label for="total_fee">Total Fee:</label>
+    <input type="number" id="total_fee" /><br/><br/>
+    <label for="registration_fee">Registration Fee:</label>
+    <input type="number" id="registration_fee" onchange="updateInstallments()" /><br/><br/>
+    <label>Installment Percentages:</label><br/>
+    <label for="installment_1">1st Installment (46%):</label>
+    <input type="text" id="installment_1" readonly /><br/>
+    <label for="installment_2">2nd Installment (37%):</label>
+    <input type="text" id="installment_2" readonly /><br/>
+    <label for="installment_3">3rd Installment (17%):</label>
+    <input type="text" id="installment_3" readonly /><br/>
+    <label for="installment_4">4th Installment (0%):</label>
+    <input type="text" id="installment_4" readonly /><br/><br/>
+    <button onclick="calculateInstallments()">Calculate Installments</button>
+
+    <script>
+        function calculateInstallments() {
+            const totalFee = parseFloat(document.getElementById('total_fee').value);
+            const registrationFee = parseFloat(document.getElementById('registration_fee').value);
+            const feeAfterRegistration = totalFee - registrationFee;
+
+            document.getElementById('installment_1').value = (feeAfterRegistration * 0.46).toFixed(2);
+            document.getElementById('installment_2').value = (feeAfterRegistration * 0.37).toFixed(2);
+            document.getElementById('installment_3').value = (feeAfterRegistration * 0.17).toFixed(2);
+            document.getElementById('installment_4').value = (feeAfterRegistration * 0.00).toFixed(2);
+        }
+
+        function updateInstallments() {
+            // Optionally update installments when registration fee changes
+        }
+    </script>
+</body>
+</html>
